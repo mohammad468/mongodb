@@ -36,4 +36,11 @@ const newCourse = new CourseModel({
   completed: true,
 });
 
-newCourse.save();
+newCourse
+  .save()
+  .then((res) => {
+    console.log("saved", res);
+  })
+  .catch((err) => {
+    console.log("not saved", err);
+  });
