@@ -49,7 +49,7 @@ const newCourse = new CourseModel({
 
 async function getCourseList() {
   const courseList = await CourseModel.find({
-    price: { $lte: 150000 },
+    price: { $in: [100000, 300000] },
   });
   console.log(courseList);
 }
