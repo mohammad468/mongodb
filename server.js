@@ -46,7 +46,10 @@ const newCourse = new CourseModel({
 //   });
 
 async function getCourseList() {
-  const courseList = await CourseModel.find().limit(3);
+  const courseList = await CourseModel.find()
+    .limit(3)
+    .sort({ name: 1 })
+    .select({ name: 1, tags: 1 });
   console.log(courseList);
 }
 
