@@ -46,7 +46,7 @@ const newCourse = new CourseModel({
 //   });
 
 async function getCourseList() {
-  const courseList = await CourseModel.find();
+  const courseList = await CourseModel.find().limit(3);
   console.log(courseList);
 }
 
