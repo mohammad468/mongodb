@@ -17,6 +17,7 @@ const schemaCourse = new mongoose.Schema({
   teacher: String,
   publishDate: { type: Date, default: Date.now },
   completed: { type: Boolean, default: false },
+  price: Number,
 });
 
 // Number
@@ -30,10 +31,11 @@ const schemaCourse = new mongoose.Schema({
 const CourseModel = mongoose.model("course", schemaCourse);
 
 const newCourse = new CourseModel({
-  name: "nodejs crash course",
-  tags: ["nodejs", "javascript", "backend"],
+  name: "ReactJs Pro crash course",
+  tags: ["React", "NextJs", "javascript", "frontend"],
   teacher: "mohammad mohseni",
   completed: true,
+  price: 300000,
 });
 
 // newCourse
@@ -47,11 +49,8 @@ const newCourse = new CourseModel({
 
 async function getCourseList() {
   const courseList = await CourseModel.find({
-    completed: false,
-  })
-    .limit(3)
-    .sort({ name: 1 })
-    .select({ name: 1, tags: 1 });
+    price: { $gte: 100000 },
+  });
   console.log(courseList);
 }
 
