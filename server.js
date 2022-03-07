@@ -48,9 +48,11 @@ const newCourse = new CourseModel({
 //   });
 
 async function getCourseList() {
+  const pageSize = 2;
+  const pageNumber = 1; // this want to change for change page
   const courseList = await CourseModel.find()
-    .and([{ completed: true }, { price: { $gte: 150000 } }])
-    .count();
+    .skip((pageNumber - 1) * pageSize)
+    .limit(pageSize);
   console.log(courseList);
 }
 
