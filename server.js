@@ -56,4 +56,10 @@ async function getCourseList() {
   console.log(courseList);
 }
 
-getCourseList();
+// getCourseList();
+
+async function deleteCourse(id) {
+  await CourseModel.findByIdAndRemove(id);
+}
+
+deleteCourse("621f551029f57ac2a7b09767");
