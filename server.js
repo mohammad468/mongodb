@@ -63,3 +63,6 @@ async function deleteCourse(id) {
 }
 
 deleteCourse("621f551029f57ac2a7b09767");
+
+getCourseList();
+
